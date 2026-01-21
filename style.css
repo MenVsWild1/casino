@@ -14,16 +14,15 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     background-color: var(--bg);
     color: var(--text);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container { 
@@ -53,12 +52,6 @@ body {
     align-items: center; 
     justify-content: center; 
     gap: 10px;
-}
-
-/* SECTIONS */
-.section-block {
-    padding: 80px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 /* HEADER */
@@ -93,8 +86,6 @@ header p {
     border-radius: 30px; 
     border: 1px solid rgba(255,255,255,0.05); 
 }
-
-.intro-text p { margin-bottom: 15px; }
 
 /* CASINO CARDS */
 .casino-list { 
@@ -148,11 +139,7 @@ header p {
     padding: 10px;
 }
 
-.c-logo img { 
-    max-width: 100%; 
-    height: auto; 
-    object-fit: contain; 
-}
+.c-logo img { max-width: 100%; height: auto; object-fit: contain; }
 
 .c-info { padding: 0 30px; }
 .c-info h2 { font-size: 24px; margin: 0 0 5px 0; color: #fff; font-weight: 700; }
@@ -179,43 +166,43 @@ header p {
     text-align: center; 
     display: block;
     transition: transform 0.2s;
-    border: none;
 }
 .c-btn:hover { transform: scale(1.02); filter: brightness(1.1); }
 
-/* SEO & FAQ */
+/* CONTENT & LEGAL PAGES */
+.legal-page { padding: 40px 0; }
+.legal-header { border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 40px; padding-bottom: 20px; }
+.legal-header h1 { font-size: 32px; color: #fff; margin: 0; }
+
 .seo-content h2, .seo-content h3 { color: var(--neon); margin-top: 40px; margin-bottom: 20px; }
 .seo-content p { color: var(--text-dim); margin-bottom: 20px; font-size: 16px; }
 .seo-content ul { color: var(--text-dim); margin-bottom: 30px; padding-left: 20px; }
 .seo-content li { margin-bottom: 10px; }
-
-.faq-item { 
-    background: rgba(255,255,255,0.03); 
-    padding: 25px; 
-    border-radius: 15px; 
-    margin-bottom: 15px; 
-}
-.faq-item h4 { color: #fff; margin: 0 0 10px 0; }
-.faq-item p { margin: 0; color: var(--text-dim); }
 
 .back-link { 
     color: var(--accent); 
     text-decoration: none; 
     font-weight: 600; 
     display: inline-block; 
-    margin-top: 30px; 
-    padding: 10px 20px;
+    margin-top: 20px; 
     border: 1px solid var(--accent);
+    padding: 10px 20px;
     border-radius: 8px;
 }
-.back-link:hover { background: rgba(255, 215, 0, 0.1); }
+.back-link:hover { background: rgba(255,215,0,0.1); }
+
+/* FAQ */
+.faq { margin-top: 60px; }
+.faq-item { background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px; margin-bottom: 15px; }
+.faq-item h4 { color: #fff; margin: 0 0 10px 0; }
+.faq-item p { margin: 0; color: var(--text-dim); }
 
 /* FOOTER */
 footer { 
     background: #070b14; 
     padding: 60px 0; 
     text-align: center; 
-    margin-top: 80px; 
+    margin-top: auto; /* Push to bottom */
     border-top: 1px solid rgba(255,255,255,0.05);
 }
 
@@ -228,11 +215,7 @@ footer {
     align-items: center;
 }
 
-.footer-logos img { 
-    height: 30px; 
-    filter: grayscale(1) invert(1); 
-    opacity: 0.6; 
-}
+.footer-logos img { height: 30px; filter: grayscale(1) invert(1); opacity: 0.6; }
 
 .footer-links a { 
     color: var(--text-dim); 
@@ -247,19 +230,9 @@ footer {
 
 /* MOBILE */
 @media (max-width: 900px) {
-    .casino-card { 
-        grid-template-columns: 1fr; 
-        text-align: center; 
-        padding: 40px 20px; 
-    }
+    .casino-card { grid-template-columns: 1fr; text-align: center; padding: 40px 20px; }
     .c-info { padding: 20px 0; }
-    .c-bonus { 
-        border: none; 
-        border-top: 1px solid rgba(255,255,255,0.1); 
-        border-bottom: 1px solid rgba(255,255,255,0.1); 
-        margin: 20px 0; 
-        padding: 20px 0; 
-    }
+    .c-bonus { border: none; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); margin: 20px 0; padding: 20px 0; }
     .c-logo { margin: 0 auto; }
     header h1 { font-size: 32px; }
     .footer-links a { display: block; margin: 10px 0; }
